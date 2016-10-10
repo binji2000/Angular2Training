@@ -19,7 +19,7 @@ interface Car {
 									</tr>
 								</thead>
 								<tbody>
-									<tr *ngFor="let car of sortedByColor">
+									<tr *ngFor="let car of sortedByYear">
 										<td>{{car.make}}</td>
 										<td>{{car.model}}</td>
 										<td>{{car.year}}</td>
@@ -58,7 +58,6 @@ export class AppComponent {
 			{make: 'Nissan', model: 'Sentra', year: 2010, color: 'White'}
 		];
 
-	lastCars: Car[] = [];
   sortedCars: Car[] = [];
 
 	isDirty:boolean = true;
@@ -70,29 +69,20 @@ export class AppComponent {
 	}
 
 	get sortedByYear() : Car[] {
-		console.log("sorting by year");
-		this.lastCars = this.cars;
-
-		return  this.cars.concat().sort(
-			function(a:Car, b:Car){
-				return a.year - b.year
-			});
-	}
-
-	get sortedByColor() : Car[] {
 		if (this.isDirty){
 			console.log("sorting by color");
 		
 			this.sortedCars = this.cars.concat().sort(
 				function(a:Car, b:Car){
-					return (a.color<b.color?-1:(a.color>b.color?1:0))
+					return a.year - b.year
+	//				return (a.color<b.color?-1:(a.color>b.color?1:0))
 				});
 
-				this.lastCars = this.cars.concat();
 				this.isDirty = false;
 
 		} 
 		return this.sortedCars;
+
 		
 	}
 
