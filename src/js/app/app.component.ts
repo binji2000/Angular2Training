@@ -1,13 +1,8 @@
 import { Component } from '@angular/core';
+import { Cars } from './service/colors.svc.ts';
+import { Car } from './service/colors.svc.ts';
 
 import '../../css/styles.scss';
-
-interface Car {
-  make:string;
-  model:string;
-  year:number;
-  color:string;
-}
 
 
 @Component({
@@ -47,85 +42,30 @@ interface Car {
 							</div>
 
 							
-							`
+							`,
+	providers: [Cars]			
 })
 export class AppComponent {
+	constructor (private cars: Cars){
+
+	}
 
 	newCar: Car = <Car>{};
 
-	cars: Car[] = [ 
-									{make: 'Toyota', model: 'Camry', year: 2016, color: 'Red'},
-									{make: 'Honda', model: 'Accord', year: 2014, color: 'Blue'},
-									{make: 'Nissan', model: 'Sentra', year: 2010, color: 'White'}
-								];
-
-  sortedCars: Car[] = [];
-  lastCars: Car[] = [];
-
-	//isDirty:boolean = true;
-
 	addCar(car: Car) {
-		//this.cars.push(car);
 		this.newCar = <Car>{};
-		this.cars = this.cars.concat(car)
-//		this.isDirty = true;
+		this.cars.insert(car)
 	}
 
 	get sortedByYear() : Car[] {
-//		if (this.isDirty){
-		if (this.cars != this.lastCars){
-			console.log("sorting by year");
-		
-			this.sortedCars = this.cars.concat().sort(
-				function(a:Car, b:Car){
-					return a.year - b.year
-	//				return (a.color<b.color?-1:(a.color>b.color?1:0))
-				});
-
-	//		this.isDirty = false;
-			this.lastCars = this.cars;
-
-		} 
-		return this.sortedCars;
+		return this.cars.getAll();
 	}
+
 
 	sortAgain(car: Car) {
-		this.lastCars = null;
+		return this.cars.getAll();
 	}
 
 }
 
-
-/*
-@Component({
-	selector: 'my-app',
-	template: `<h1>{{header}}</h1>`
-})
-export class AppComponent1 {
-	header: string = 'My colorful App';
-}
-
-
-
-@Component({
-	selector: 'my-app',
-	template: `<table>
-								<thead>
-									<tr>
-										<th>Make</th><th>Model</th><th>Year</th><th>color</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td *ngFor="let car of Car">{{car}}</td>
-									</tr>
-								</tbody>
-							</table>`
-})
-export class AppComponent {
-	Car: string[] = [ 'Toyota', 'Camry', '2016', 'Red'];
-
-}
-
-*/
 
