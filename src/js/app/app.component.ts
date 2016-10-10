@@ -42,7 +42,8 @@ interface Car {
 								<label for="new-color">Color</label>
 								<input type="text" id="new-color" name="new-color" [(ngModel)]="newCar.color" />
 								<br/>
-								<button type="button" (click)="addCar(newCar)">Add Car</button>
+								<button type="button" (click)="addCar(newCar)">Add Car</button> 
+								<button type="button" (click)="sortAgain()">Sort</button>
 							</div>
 
 							
@@ -50,7 +51,7 @@ interface Car {
 })
 export class AppComponent {
 
-	newCar: Car = {make:'', model: '', year: 0, color:''};
+	newCar: Car = <Car>{};
 
 	cars: Car[] = [ 
 			{make: 'Toyota', model: 'Camry', year: 2016, color: 'Red'},
@@ -63,14 +64,13 @@ export class AppComponent {
 	isDirty:boolean = true;
 
 	addCar(car: Car) {
-
 		this.cars.push(car);
 		this.isDirty = true;
 	}
 
 	get sortedByYear() : Car[] {
 		if (this.isDirty){
-			console.log("sorting by color");
+			console.log("sorting by year");
 		
 			this.sortedCars = this.cars.concat().sort(
 				function(a:Car, b:Car){
@@ -84,6 +84,10 @@ export class AppComponent {
 		return this.sortedCars;
 
 		
+	}
+
+	sortAgain(car: Car) {
+		this.isDirty = true;
 	}
 
 }
