@@ -2,6 +2,14 @@ import { Component } from '@angular/core';
 
 import '../../css/styles.scss';
 
+interface Car {
+  make:string;
+  model:string;
+  year:number;
+  color:string;
+}
+
+
 @Component({
 	selector: 'my-app',
 	template: `<table>
@@ -11,17 +19,21 @@ import '../../css/styles.scss';
 									</tr>
 								</thead>
 								<tbody>
-									<tr>
-										<td>{{Make}}</td><td>{{Model}}</td><td>{{Year}}</td><td>{{Color}}</td>
+									<tr *ngFor="let car of cars">
+										<td>{{car.make}}</td>
+										<td>{{car.model}}</td>
+										<td>{{car.year}}</td>
+										<td>{{car.color}}</td>
 									</tr>
 								</tbody>
 							</table>`
 })
 export class AppComponent {
-	Make: string = 'Toyota';
-	Model: string = 'Camry';
-	Year: string = '2016';
-	Color: string = 'Red';
+	cars: Car[] = [ 
+			{make: 'Toyota', model: 'Camry', year: 2016, color: 'Red'},
+			{make: 'Honda', model: 'Accord', year: 2014, color: 'Blue'}
+		];
+
 }
 
 
@@ -31,7 +43,30 @@ export class AppComponent {
 	template: `<h1>{{header}}</h1>`
 })
 export class AppComponent1 {
-	header: string = 'My Colorful App';
+	header: string = 'My colorful App';
 }
+
+
+
+@Component({
+	selector: 'my-app',
+	template: `<table>
+								<thead>
+									<tr>
+										<th>Make</th><th>Model</th><th>Year</th><th>color</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td *ngFor="let car of Car">{{car}}</td>
+									</tr>
+								</tbody>
+							</table>`
+})
+export class AppComponent {
+	Car: string[] = [ 'Toyota', 'Camry', '2016', 'Red'];
+
+}
+
 */
 

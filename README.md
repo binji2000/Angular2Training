@@ -1,4 +1,6 @@
 # Welcome to Comprehensive Angular 2!
+# Modified for Bin Ji
+
 
 ## Instructor
 
