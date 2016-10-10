@@ -54,22 +54,26 @@ export class AppComponent {
 	newCar: Car = <Car>{};
 
 	cars: Car[] = [ 
-			{make: 'Toyota', model: 'Camry', year: 2016, color: 'Red'},
-			{make: 'Honda', model: 'Accord', year: 2014, color: 'Blue'},
-			{make: 'Nissan', model: 'Sentra', year: 2010, color: 'White'}
-		];
+									{make: 'Toyota', model: 'Camry', year: 2016, color: 'Red'},
+									{make: 'Honda', model: 'Accord', year: 2014, color: 'Blue'},
+									{make: 'Nissan', model: 'Sentra', year: 2010, color: 'White'}
+								];
 
   sortedCars: Car[] = [];
+  lastCars: Car[] = [];
 
-	isDirty:boolean = true;
+	//isDirty:boolean = true;
 
 	addCar(car: Car) {
-		this.cars.push(car);
-		this.isDirty = true;
+		//this.cars.push(car);
+		this.newCar = <Car>{};
+		this.cars = this.cars.concat(car)
+//		this.isDirty = true;
 	}
 
 	get sortedByYear() : Car[] {
-		if (this.isDirty){
+//		if (this.isDirty){
+		if (this.cars != this.lastCars){
 			console.log("sorting by year");
 		
 			this.sortedCars = this.cars.concat().sort(
@@ -78,16 +82,15 @@ export class AppComponent {
 	//				return (a.color<b.color?-1:(a.color>b.color?1:0))
 				});
 
-				this.isDirty = false;
+	//		this.isDirty = false;
+			this.lastCars = this.cars;
 
 		} 
 		return this.sortedCars;
-
-		
 	}
 
 	sortAgain(car: Car) {
-		this.isDirty = true;
+		this.lastCars = null;
 	}
 
 }
