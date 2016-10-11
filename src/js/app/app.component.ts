@@ -8,8 +8,8 @@ import '../../css/styles.scss';
 @Component({
 	selector: 'my-app',
 	template: `
-						<div *ngIf="!showMe">
-							<table *ngIf="!showMe">
+						<div *ngIf="showTable">
+							<table>
 								<thead>
 									<tr>
 										<th>Make</th><th>Model</th><th>Year</th><th>Color;</th>
@@ -32,43 +32,46 @@ import '../../css/styles.scss';
 
 						</div>
 
-							<div *ngIf="showMe">
-							  <label>New Car Information:</label>
-								<br/>
-								<label for="new-make">Make</label>
-								<input type="text" id="new-make" name="new-make" [(ngModel)]="newCar.make" />
-								<label for="new-model">Model</label>
-								<input type="text" id="new-model" name="new-model" [(ngModel)]="newCar.model" />
-								<label for="new-year">Year</label>
-								<input type="text" id="new-year" name="new-year" [(ngModel)]="newCar.year" />
-								<label for="new-color">Color</label>
-								<input type="text" id="new-color" name="new-color" [(ngModel)]="newCar.color" />
-								<br/>
-								<button type="button" (click)="addCar(newCar)">Add Car</button> 
-							</div>
+						<div *ngIf="!showTable">
+							<label>New Car Information:</label>
+							<br/>
+							<label for="new-make">Make</label>
+							<input type="text" id="new-make" name="new-make" [(ngModel)]="newCar.make" />
+							<label for="new-model">Model</label>
+							<input type="text" id="new-model" name="new-model" [(ngModel)]="newCar.model" />
+							<label for="new-year">Year</label>
+							<input type="text" id="new-year" name="new-year" [(ngModel)]="newCar.year" />
+							<label for="new-color">Color</label>
+							<input type="text" id="new-color" name="new-color" [(ngModel)]="newCar.color" />
+							<br/>
+							<button type="button" (click)="addCar(newCar)">Add Car</button> 
+						</div>
 
-							<input type="checkbox" [(ngModel)]="showMe" >Show Me
-							<div *ngIf="showMe">
-								you can see me!
-							</div>
+						<input type="checkbox" [(ngModel)]="showTable" >Show Me
+						<div *ngIf="showTable">
+							you can see me!
+						</div>
+
 							`,
 	providers: [Cars]			
 })
 export class AppComponent {
 	constructor (private cars: Cars){
-
+		this.now = (new Date()).toString();
 	}
+
+	now: string = "";
 
 	newCar: Car = <Car>{};
 
-  showMe: boolean = false;
+  showTable: boolean = true;
 	
 	startCreateCar() {
-		this.showMe = !this.showMe;
+		this.showTable = !this.showTable;
 		
 	}
 	addCar(car: Car) {
-		this.showMe = !this.showMe;
+		this.showTable = !this.showTable;
 		this.newCar = <Car>{};
 		this.cars.insert(car)
 	}
