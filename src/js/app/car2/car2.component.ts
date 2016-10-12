@@ -13,7 +13,7 @@ import '../../../css/styles.scss';
 })
 export class AppComponent implements OnInit {
 	constructor (private carSrv: CarService){
-		this.now = (new Date()).toString();
+		this.now = new Date();
 	}
 
 	ngOnInit() { 
@@ -23,7 +23,7 @@ export class AppComponent implements OnInit {
 
 	carLot: CarLot;
 
-	now: string = "";
+	now: Date;
 
 	favColor: string = "green";
 

@@ -1,4 +1,4 @@
-<div style="text-align: left;"><my-header [header]="header"></my-header>  {{now}}</div>
+<div style="text-align: left;"><my-header [header]="header"></my-header>  {{now | date:'short'}}</div>
 <br/>
 
 <div *ngIf="showTable">
