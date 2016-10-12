@@ -7,7 +7,7 @@
 		</thead>
 		<tbody>
 			<tr *ngFor="let car of items">
-				<td>{{car.make}}</td>
+				<td>{{car.make | myuppercase}}</td>
 				<td>{{car.model}}</td>
 				<td>{{car.year}}</td>
 				<td>{{car.color}}</td>

@@ -1,7 +1,15 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Pipe, PipeTransform } from '@angular/core';
 import { CarLot } from './service/cars.svc.ts';
 import { Car } from './service/cars.svc.ts';
 
+@Pipe({
+	name: 'myuppercase'
+})
+export class MyUpperCasePipe implements PipeTransform{
+	transform(value: any){
+		return String(value).toUpperCase();
+	}
+}
 
 @Component({
 	selector: 'car-table',
