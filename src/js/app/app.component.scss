@@ -1,0 +1,16 @@
+
+input.ng-invalid.ng-touched {
+	border: 1px solid red;
+}
+
+.validation-message {
+	display: none;
+}
+
+.show.validation-message {
+	display: initial;
+}
+
+textarea {
+	vertical-align: middle;
+}

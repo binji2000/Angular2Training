@@ -1,51 +1,55 @@
-import { Component } from '@angular/core';
-import { Cars } from './service/cars.svc.ts';
-import { Car } from './service/cars.svc.ts';
+import { Component, Directive } from '@angular/core';
+import { FormControl, NG_VALIDATORS } from '@angular/forms';
 
 import '../../css/styles.scss';
 
+const myRequiredValidator = (c: FormControl) => {
+	if (c.value == null || String(c.value).length === 0){
+		//invalid
+
+		return {
+			myRequired: {
+				valid: false
+			}
+		};
+
+	}
+
+	return null;
+}
+@Directive({
+	selector: '[myRequired][ngModel]',
+	providers: [{
+			provide: NG_VALIDATORS, useValue: myRequiredValidator, multi: true
+	}]
+})
+
+export class MyRequiredDirective { }
 
 @Component({
 	selector: 'my-app',
 	styles: [require ('./app.component.scss')],
-	template: require('./app.component.html'),
-	providers: [Cars]			
+	template: require('./app.component.html')
 })
+
 export class AppComponent {
-	constructor (private cars: Cars){
-		this.now = (new Date()).toString();
+	firstName: string = "";
+	lastName: string = "";
+	age: number;
+
+	isEmployed:  boolean = false;
+	division: string = '';
+
+	states: string[] = ["MA", "IL", "NH", "TX", "NY"];
+
+  showData(){
+		console.log(this);
 	}
 
-	now: string = "";
-
-	favColor: string = "green";
-
-
-
-	newCar: Car = <Car>{};
-
-  showTable: boolean = true;
-	
-	startCreateCar() {
-		this.showTable = !this.showTable;
-		
+	consoleShow(o: FormControl){
+		console.log(o);
+		return o;
 	}
-	addCar(car: Car) {
-		this.showTable = !this.showTable;
-		this.newCar = <Car>{};
-		this.cars.insert(car)
-	}
-
-
-	get sortedByYear() : Car[] {
-		return this.cars.getAll();
-	}
-
-
-	sortAgain(car: Car) {
-		return this.cars.getAll();
-	}
-
 }
 
 

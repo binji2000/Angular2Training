@@ -1,53 +1,55 @@
-<div style="text-align: left;">My Car Collection: {{now}}</div>
-<br/>
+<form novalidate>
+	<div>
+		<label id="first-name-label">First name:</label>
+<!--		<input type="text" id="first-name" name="fistName" [(ngModel)]="firstName" required #firstNameInput="ngModel" > -->
+		<input type="text" id="first-name" name="fistName" (blur)="firstName = firstNameInput.value" [ngModel]="firstName" myRequired #firstNameInput="ngModel" >
+		<span *ngIf="!firstNameInput.valid">First Name is a required field</span>
+		<br/>
 
-<div *ngIf="showTable">
-	<table>
-		<thead>
-			<tr>
-				<th>Make</th><th>Model</th><th>Year</th><th>Color;</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr *ngFor="let car of sortedByYear">
-				<td>{{car.make}}</td>
-				<td>{{car.model}}</td>
-				<td>{{car.year}}</td>
-				<td>{{car.color}}</td>
-			</tr>
-		</tbody>
-	</table>
+		<label id="last-name-label">Last name:</label>
+		<input type="text" id="last-name" name="lastName" (blur)="lastName = lastNameInput.value" [ngModel]="lastName" required #lastNameInput="ngModel" >
+		<span *ngIf="!lastNameInput.valid">Last Name is a required field</span>
+		<br/>
+
+		<label id="age-label">Age:</label>
+		<input type="text" id="age" name="age" (blur)="age = ageInput.value" [ngModel]="age" pattern="[0-9]*" required type="number" #ageInput="ngModel" >
+		<span *ngIf="!ageInput.valid">age is a required field</span>
+		<br/>
+
+		{{firstName}} {{lastName}}: {{age}}
+
+		<div>
+			<label for='is-employed'>Is Employed:</label>
+			<input type="checkbox" id="is-employed" name="isEmployed" [(ngModel)]="isEmployed">
+		</div>
+
+	</div>
+
+	<fieldset>
+		<legend>Select a Division</legend>
+		<div>
+			<input type="radio" id="division-finance" name="division" value="finance" [(ngModel)]="division">
+			<label for='division-finance'>Fianance</label>
+		</div>
+		<div>
+			<input type="radio" id="division-health" name="division" value="helath" [(ngModel)]="division">
+			<label for='division-health'>Health</label>
+		</div>
+	</fieldset>
+
+	<div>
+		<label>Comments:</label>
+		<textarea id="comments" name="comments" [(ngModel)]="comments"> </textarea>
+	</div>
+
 	
-	<br/>
-	<button type="button" (click)="startCreateCar()">Create</button>
+	<div>
+		<label>State of Residence:</label>
+		<select id="state-of-residence" name="stateOfResidence" [(ngModel)]="stateOfResidence"  multiple>
+			<option *ngFor="let state of states" [value]="state">
+				{{state}}
+			</option>
+		</select>
+	</div>
 
-	<button type="button" (click)="sortAgain()">Sort</button>
-
-</div>
-
-<div *ngIf="!showTable">
-	<label>New Car Information:</label>
-	<br/>
-	<label for="new-make">Make</label>
-	<input type="text" id="new-make" name="new-make" [(ngModel)]="newCar.make" />
-	<label for="new-model">Model</label>
-	<input type="text" id="new-model" name="new-model" [(ngModel)]="newCar.model" />
-	<label for="new-year">Year</label>
-	<input type="text" id="new-year" name="new-year" [(ngModel)]="newCar.year" />
-	<label for="new-color">Color</label>
-	<input type="text" id="new-color" name="new-color" [(ngModel)]="newCar.color" />
-	<br/>
-	<button type="button" (click)="addCar(newCar)">Add Car</button> 
-</div>
-
-<input type="checkbox" [(ngModel)]="showTable" >Show Me
-<div *ngIf="showTable">
-	you can see me!
-</div>
-
-<div [ngSwitch]="favColor">
-	<div *ngSwitchCase = " 'blue' ">My favorite color is blue</div>
-	<div *ngSwitchCase = " 'green' ">My favorite color is green.</div>
-	<div *ngSwitchCase = " 'red' ">My favorite color is red.</div>
-	<div *ngSwitchDefault>My favorite color is hot pink.</div>
-</div>
+</form>
