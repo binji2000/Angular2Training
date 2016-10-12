@@ -1,5 +1,5 @@
 import { Component, Input,OnInit  } from '@angular/core';
-import { CarService, CarLot, Car } from './service/cars.svc.ts';
+import { CarService, Car } from './service/cars.svc.ts';
 
 import '../../../css/styles.scss';
 
@@ -25,14 +25,11 @@ export class AppComponent implements OnInit {
 		this.now = (new Date()).toString();
 	}
 	ngOnInit() { 
-		this.carList = this.carSrv.getCarList();
-		this.carLot = this.carSrv.getCarLot();
+		this.carList = this.carSrv.getAll();
  		//this.cars = this.carSrv; 
  	} 
 
 	carList: Car[];
-
-	carLot: CarLot;
 
 	now: string = "";
 
@@ -64,7 +61,7 @@ export class AppComponent implements OnInit {
 
 
 	sortAgain(car: Car) {
-		return this.carSrv.getCarList();
+		return this.carSrv.getAll();
 	}
 
 }

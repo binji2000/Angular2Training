@@ -24,7 +24,7 @@ export class CarLot {
 	isDirty:boolean = true;
 
 
-	getCarList(): Car[] {
+	getAll(): Car[] {
 		if (this.isDirty){
 //		if (this._cars != this.lastCars){
 			console.log("sorting by year");
@@ -59,17 +59,12 @@ export class CarService{
 	constructor(){
 		this._carLot = new CarLot();
 	}
-	
-	getCarList(): Car[] {
-		return this._carLot.getCarList();
+	getAll(): Car[] {
+		return this._carLot.getAll();
 	} 
 
 	insert (car: Car) {
 		this._carLot.insert(car) ;
-	}
-
-	getCarLot(){
-		return this._carLot;
 	}
 
 /*

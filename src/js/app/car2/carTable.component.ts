@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { Cars } from './../service/cars.svc.ts';
-import { Car } from './../service/cars.svc.ts';
+import { CarLot } from './service/cars.svc.ts';
+import { Car } from './service/cars.svc.ts';
 
 
 @Component({
@@ -10,5 +10,11 @@ import { Car } from './../service/cars.svc.ts';
 
 export class CarTableComponent {
 	@Input()
-	items: Car[];
+	carLot: CarLot;
+
+	//items: Car[];
+
+	get items(): Car[] {
+		return this.carLot.getCarList();
+	}
 }	
