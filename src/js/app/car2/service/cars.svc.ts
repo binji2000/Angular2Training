@@ -9,7 +9,7 @@ export interface Car {
 
 
 @Injectable()
-export class Cars{
+export class CarService{
 
 
 	private _cars: Car[] = 

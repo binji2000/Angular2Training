@@ -2,21 +2,9 @@
 <br/>
 
 <div *ngIf="showTable">
-	<table>
-		<thead>
-			<tr>
-				<th>Make</th><th>Model</th><th>Year</th><th>Color;</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr *ngFor="let car of sortedByYear">
-				<td>{{car.make}}</td>
-				<td>{{car.model}}</td>
-				<td>{{car.year}}</td>
-				<td>{{car.color}}</td>
-			</tr>
-		</tbody>
-	</table>
+
+	<car-table [items]="carList">></car-table>
+
 	
 	<br/>
 	<button type="button" (click)="startCreateCar()">Create</button>
@@ -24,6 +12,7 @@
 	<button type="button" (click)="sortAgain()">Sort</button>
 
 </div>
+
 
 <div *ngIf="!showTable">
 	<label>New Car Information:</label>

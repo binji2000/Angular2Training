@@ -4,10 +4,11 @@ import { FormsModule } from '@angular/forms';
 
 import '../../css/styles.scss';
 import { AppComponent,MyHeaderComponent } from './car2/car2.component';
+import { CarTableComponent } from './car2/carTable.component';
 
 @NgModule({
 	imports: [ BrowserModule, FormsModule ],
-	declarations: [ AppComponent,MyHeaderComponent ],
+	declarations: [ AppComponent,MyHeaderComponent,CarTableComponent ],
 	bootstrap: [ AppComponent ]
 })
 

@@ -1,6 +1,5 @@
-import { Component, Input } from '@angular/core';
-import { Cars } from './../service/cars.svc.ts';
-import { Car } from './../service/cars.svc.ts';
+import { Component, Input,OnInit  } from '@angular/core';
+import { CarService, Car } from './service/cars.svc.ts';
 
 import '../../../css/styles.scss';
 
@@ -14,16 +13,23 @@ export class MyHeaderComponent {
 	header: string;
 }	
 
+
 @Component({
 	selector: 'my-app',
 	styles: [require ('./car2.component.scss')],
 	template: require('./car2.component.html'),
-	providers: [Cars]			
+	providers: [CarService]			
 })
-export class AppComponent {
-	constructor (private cars: Cars){
+export class AppComponent implements OnInit {
+	constructor (private carSrv: CarService){
 		this.now = (new Date()).toString();
 	}
+	ngOnInit() { 
+		this.carList = this.carSrv.getAll();
+ 		//this.cars = this.carSrv; 
+ 	} 
+
+	carList: Car[];
 
 	now: string = "";
 
@@ -41,20 +47,21 @@ export class AppComponent {
 		this.showTable = !this.showTable;
 		
 	}
+
 	addCar(car: Car) {
 		this.showTable = !this.showTable;
 		this.newCar = <Car>{};
-		this.cars.insert(car)
+		this.carSrv.insert(car)
 	}
 
 
 	get sortedByYear() : Car[] {
-		return this.cars.getAll();
+		return this.carList;
 	}
 
 
 	sortAgain(car: Car) {
-		return this.cars.getAll();
+		return this.carSrv.getAll();
 	}
 
 }
