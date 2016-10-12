@@ -3,15 +3,6 @@ import { CarService, CarLot, Car } from './service/cars.svc.ts';
 
 import '../../../css/styles.scss';
 
-@Component({
-	selector: 'my-header',
-	template: `<header><h1>{{header}}</h1></header>`
-})
-
-export class MyHeaderComponent {
-	@Input()
-	header: string;
-}	
 
 
 @Component({
@@ -38,6 +29,14 @@ export class AppComponent implements OnInit {
 
 	header: string = "My Car Collection";
 
+	newCarHandler(newCar: Car) { 
+		console.log("inside car2.component.newCarhandler()");
+ 		this.carLot.insert(newCar); 
+		this.showTable = !this.showTable;
+ 		//this.colorList = this.colorsSvc.getAll(); 
+ 	} 
+ 
+ 
 
 
 	newCar: Car = <Car>{};

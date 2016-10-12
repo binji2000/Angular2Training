@@ -1,0 +1,13 @@
+	<label>New Car Information:</label>
+	<br/>
+	<label for="new-make">Make</label>
+	<input type="text" id="new-make" name="new-make" [(ngModel)]="newCar.make" />
+	<label for="new-model">Model</label>
+	<input type="text" id="new-model" name="new-model" [(ngModel)]="newCar.model" />
+	<label for="new-year">Year</label>
+	<input type="text" id="new-year" name="new-year" [(ngModel)]="newCar.year" />
+	<label for="new-color">Color</label>
+	<input type="text" id="new-color" name="new-color" [(ngModel)]="newCar.color" />
+	<br/>
+	<button type="button" (click)="addCar()">Add Car</button> 
+
