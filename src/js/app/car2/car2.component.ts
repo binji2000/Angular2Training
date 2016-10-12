@@ -28,7 +28,7 @@ export class AppComponent implements OnInit {
 	favColor: string = "green";
 
 	handleNewCar(newCar: Car) { 
-		console.log("inside car2.component.newCarhandler()");
+		//console.log("inside car2.component.newCarhandler()");
  		this.carLot.insert(newCar); 
 		this.showTable = !this.showTable;
  	} 

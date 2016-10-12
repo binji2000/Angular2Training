@@ -16,7 +16,7 @@ export class CarBuilderComponent {
  
  
  	addCar() { 
-		 console.log("from car builder.addCar()");
+		//console.log("from car builder.addCar()");
  		this.onNewCar.emit(this.newCar); 
  	} 
 
