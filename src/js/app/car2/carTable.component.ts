@@ -5,7 +5,7 @@ import { Car } from './service/cars.svc.ts';
 
 @Component({
 	selector: 'car-table',
-	template: require('./carTable.component.html'),
+	template: require('./carTable.component.html')
 })
 
 export class CarTableComponent {
