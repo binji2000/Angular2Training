@@ -9,6 +9,8 @@ import { Car } from './service/cars.svc.ts';
 })
 
 export class CarTableComponent {
+
+	/* initialized through the html fragment */
 	@Input()
 	carLot: CarLot;
 

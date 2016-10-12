@@ -3,9 +3,10 @@
 
 <div *ngIf="showTable">
 
-<!--
-	<car-table [items]="carList">></car-table>
--->
+	<!-- 
+		 [carLot] is used to match the attribute in the catTable compoent,
+			the value "carLot" is passed in from parent component.
+	 -->
 
 	<car-table [carLot]="carLot"></car-table>
 	
