@@ -59,14 +59,14 @@ export class CarService{
 	constructor(){
 		this._carLot = new CarLot();
 	}
-	
-	getCarList(): Car[] {
-		return this._carLot.getCarList();
-	} 
 
-	insert (car: Car) {
-		this._carLot.insert(car) ;
-	}
+	// getCarList(): Car[] {
+	// 	return this._carLot.getCarList();
+	// } 
+
+	// insert (car: Car) {
+	// 	this._carLot.insert(car) ;
+	// }
 
 	getCarLot(){
 		return this._carLot;

@@ -24,13 +24,11 @@ export class AppComponent implements OnInit {
 	constructor (private carSrv: CarService){
 		this.now = (new Date()).toString();
 	}
+
 	ngOnInit() { 
-		this.carList = this.carSrv.getCarList();
 		this.carLot = this.carSrv.getCarLot();
- 		//this.cars = this.carSrv; 
  	} 
 
-	carList: Car[];
 
 	carLot: CarLot;
 
@@ -54,18 +52,15 @@ export class AppComponent implements OnInit {
 	addCar(car: Car) {
 		this.showTable = !this.showTable;
 		this.newCar = <Car>{};
-		this.carSrv.insert(car)
+		this.carLot.insert(car)
 	}
 
 
 	get sortedByYear() : Car[] {
-		return this.carList;
+		return this.carLot.getCarList();
 	}
 
 
-	sortAgain(car: Car) {
-		return this.carSrv.getCarList();
-	}
 
 }
 

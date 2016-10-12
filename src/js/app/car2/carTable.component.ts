@@ -12,7 +12,6 @@ export class CarTableComponent {
 	@Input()
 	carLot: CarLot;
 
-	//items: Car[];
 
 	get items(): Car[] {
 		return this.carLot.getCarList();
