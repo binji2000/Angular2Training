@@ -16,8 +16,8 @@ export class MyHeaderComponent {
 
 @Component({
 	selector: 'my-app',
-	styles: [require ('./app.component.scss')],
-	template: require('./app.component.html'),
+	styles: [require ('./car2.component.scss')],
+	template: require('./car2.component.html'),
 	providers: [Cars]			
 })
 export class AppComponent {
