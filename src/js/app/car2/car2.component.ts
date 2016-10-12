@@ -27,37 +27,26 @@ export class AppComponent implements OnInit {
 
 	favColor: string = "green";
 
-	header: string = "My Car Collection";
-
-	newCarHandler(newCar: Car) { 
+	handleNewCar(newCar: Car) { 
 		console.log("inside car2.component.newCarhandler()");
  		this.carLot.insert(newCar); 
 		this.showTable = !this.showTable;
- 		//this.colorList = this.colorsSvc.getAll(); 
  	} 
- 
- 
 
 
-	newCar: Car = <Car>{};
 
   showTable: boolean = true;
 	
 	startCreateCar() {
 		this.showTable = !this.showTable;
-		
 	}
 
-	addCar(car: Car) {
-		this.showTable = !this.showTable;
-		this.newCar = <Car>{};
-		this.carLot.insert(car)
-	}
+	// addCar(car: Car) {
+	// 	this.showTable = !this.showTable;
+	// 	this.newCar = <Car>{};
+	// 	this.carLot.insert(car)
+	// }
 
-
-	get sortedByYear() : Car[] {
-		return this.carLot.getCarList();
-	}
 
 
 

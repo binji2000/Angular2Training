@@ -12,12 +12,12 @@ export class CarBuilderComponent {
 	newCar: Car = <Car>{};
 
 	@Output() 
- 	newCarEventEmitter: EventEmitter<Car> = new EventEmitter<Car>(); 
+ 	onNewCar: EventEmitter<Car> = new EventEmitter<Car>(); 
  
  
  	addCar() { 
 		 console.log("from car builder.addCar()");
- 		this.newCarEventEmitter.emit(this.newCar); 
+ 		this.onNewCar.emit(this.newCar); 
  	} 
 
 }

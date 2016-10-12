@@ -15,7 +15,7 @@
 
 
 <div *ngIf="!showTable">
-	<car-builder (newCarEventEmitter)="newCarHandler($event)"></car-builder>
+	<car-builder (onNewCar)="handleNewCar($event)"></car-builder>
 
 
 </div>
