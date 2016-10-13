@@ -1,8 +1,10 @@
 import { Component, Input,OnInit  } from '@angular/core';
-import { CarService, CarLot, Car } from './service/cars.svc.ts';
+
+import { Car } from './vo/car';
+import { CarLot } from './vo/carLot';
+import { CarService } from './service/cars.svc';
 
 import '../../../css/styles.scss';
-
 
 
 @Component({
@@ -40,12 +42,6 @@ export class AppComponent implements OnInit {
 	startCreateCar() {
 		this.showTable = !this.showTable;
 	}
-
-	// addCar(car: Car) {
-	// 	this.showTable = !this.showTable;
-	// 	this.newCar = <Car>{};
-	// 	this.carLot.insert(car)
-	// }
 
 
 
