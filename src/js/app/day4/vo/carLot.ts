@@ -1,16 +1,6 @@
-import { Injectable } from '@angular/core';
+import { Car } from './car';
 
-export interface Car {
-  make:string;
-  model:string;
-  year:number;
-  color:string;
-}
-
-
-@Injectable()
-export class Cars{
-
+export class CarLot {
 
 	private _cars: Car[] = 
 							 [ 
@@ -25,7 +15,7 @@ export class Cars{
 	isDirty:boolean = true;
 
 
-	getAll(): Car[] {
+	getCarList(): Car[] {
 		if (this.isDirty){
 //		if (this._cars != this.lastCars){
 			console.log("sorting by year");
@@ -50,17 +40,5 @@ export class Cars{
 	}
 
 
-/*
-	sortByYear(a:Car, b:Car) : number {
-			return a.year - b.year;
-	}
-
-
-	sortByYear(a:Car, b:Car) : number {
-			return a.year - b.year;
-	}
-	
-*/
-
-
 }
+
