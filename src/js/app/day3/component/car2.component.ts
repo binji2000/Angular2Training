@@ -1,10 +1,9 @@
 import { Component, Input,OnInit  } from '@angular/core';
 
-import { Car } from './vo/car';
-import { CarLot } from './vo/carLot';
-import { CarService } from './service/cars.svc';
+import { Car } from './../vo/car';
+import { CarLot } from './../vo/carLot';
+import { CarService } from './../service/cars.svc';
 
-import '../../../css/styles.scss';
 
 
 @Component({
@@ -27,22 +26,22 @@ export class AppComponent implements OnInit {
 
 	now: Date;
 
-	favColor: string = "green";
-
 	handleNewCar(newCar: Car) { 
 		//console.log("inside car2.component.newCarhandler()");
  		this.carLot.insert(newCar); 
-		this.showTable = !this.showTable;
+		this.isTableVisible = !this.isTableVisible;
  	} 
 
 
 
-  showTable: boolean = true;
+  isTableVisible: boolean = true;
 	
-	startCreateCar() {
-		this.showTable = !this.showTable;
+	btnCreateClick() {
+		this.isTableVisible = !this.isTableVisible;
 	}
 
+
+	favColor: string = "green";
 
 
 

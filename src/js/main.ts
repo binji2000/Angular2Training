@@ -5,6 +5,6 @@ if (process.env['ENV'] === 'production') {
  enableProdMode();
 }
 
-import { AppModule } from './app/app.module';
+import { AppModule } from './app/day3/app.module';
 
 platformBrowserDynamic().bootstrapModule(AppModule);

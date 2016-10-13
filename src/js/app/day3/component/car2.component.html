@@ -1,7 +1,7 @@
 <div style="text-align: left;"><my-header [header]="header"></my-header>  {{now | date:'short'}}</div>
 <br/>
 
-<div *ngIf="showTable">
+<div *ngIf="isTableVisible">
 
 	<!-- 
 		 [carLot] is used to match the attribute in the catTable compoent,
@@ -14,17 +14,17 @@
 </div>
 
 
-<div *ngIf="!showTable">
+<div *ngIf="!isTableVisible">
 	<car-builder (onNewCar)="handleNewCar($event)"></car-builder>
 
 
 </div>
 
 <br/> 
-<button type="button" (click)="startCreateCar()">Create</button>
+<button type="button" (click)="btnCreateClick()">Create</button>
 
-<input type="checkbox" [(ngModel)]="showTable" >Show Me
-<div *ngIf="showTable">
+<input type="checkbox" [(ngModel)]="isTableVisible" >Show Me
+<div *ngIf="isTableVisible">
 	you can see me!
 </div>
 

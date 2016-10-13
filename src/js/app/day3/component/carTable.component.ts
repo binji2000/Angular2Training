@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { Car } from './vo/car';
-import { CarLot } from './vo/carLot';
+import { Car } from './../vo/car';
+import { CarLot } from './../vo/carLot';
 
 
 @Component({
