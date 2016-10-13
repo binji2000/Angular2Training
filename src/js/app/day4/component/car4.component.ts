@@ -6,6 +6,7 @@ import { CarService } from './../service/cars.svc';
 
 
 
+
 @Component({
 	selector: 'my-app',
 	styles: [require ('./car4.component.scss')],
@@ -17,6 +18,7 @@ export class AppComponent implements OnInit {
 		this.now = new Date();
 	}
 
+	/* life cycle functions provides more control */
 	ngOnInit() { 
 		this.carLot = this.carSrv.getCarLot();
  	} 
