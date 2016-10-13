@@ -27,6 +27,11 @@
         console.log("one failed");
         console.log(err);
       })
+
+      fetch('http://svc.treeloop.com/products')
+      .then(res => res.json())
+      .then(results => console.dir(results));
+      
     </script>
   </head>
   <body>
