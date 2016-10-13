@@ -1,12 +1,17 @@
-import { Component, Input,OnInit , Inject, OpaqueToken } from '@angular/core';
+import { Component, Injectable } from '@angular/core';
+import { Http } from '@angular/http';
 
-import { Injectable } from '@angular/core';
 
+@Injectable()
+export class Products {
+	constructor(private http: Http){
+
+	}
+}
 
 @Component({
 	selector: 'my-app',
-	template: ``,
-	providers: []
+	template: ``
 })
 export class TempComponent {
 	constructor () {
