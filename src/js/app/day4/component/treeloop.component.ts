@@ -12,6 +12,8 @@ import { Products } from '../service/Products.svc';
 export class TreeloopComponent implements OnInit{
 	productList:	any[];
 
+	product: any;
+
 	constructor (private products: Products) {
 	}
 
@@ -23,6 +25,10 @@ export class TreeloopComponent implements OnInit{
 
 	btnViewDetail(id: number){
 		console.log(id);
+			this.products.getProduct(id).then(results => {
+		  console.log(results.json());
+			this.product = results.json();
+		});
 	}
 
 

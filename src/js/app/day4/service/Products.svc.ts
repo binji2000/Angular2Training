@@ -14,4 +14,8 @@ export class Products {
 		return this.http.get(this.baseUrl).toPromise();
 	}
 
+	getProduct(id: number){
+		return this.http.get(this.baseUrl + '/' + id).toPromise();
+	}
+
 }

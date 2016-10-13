@@ -1,0 +1,14 @@
+	<label>Product Information:</label>
+	<br/>
+	<label for="new-name">Name</label>
+	<input type="text" id="new-name" name="new-name" [ngModel]="product?.name" />
+	<label for="new-unitPrice">Unit Price</label>
+	<input type="text" id="new-unitPrice" name="new-unitPrice" [ngModel]="product?.unitPrice" />
+	<label for="new-package">Package</label>
+	<input type="text" id="new-package" name="new-package" [ngModel]="product?.package" />
+	<label for="new-isDiscontinued">Is Discontinued</label>
+	<input type="text" id="new-isDiscontinued" name="new-isDiscontinued" [ngModel]="product?.isDiscontinued" />
+	<br/>
+	<!--
+	<button type="button" (click)="btnAddCar_Click()">Add Car</button> 
+-->
