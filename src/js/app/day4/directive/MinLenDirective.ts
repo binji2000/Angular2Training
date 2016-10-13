@@ -30,7 +30,7 @@ export class MinLenDirective {
 			return { minlen: false };
 		}
 		console.log('minLen valid');
-		return { minlen: true };
+		return null;
 	}
 
 	// @Input()

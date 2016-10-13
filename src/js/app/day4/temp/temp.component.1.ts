@@ -1,10 +1,11 @@
-import { Component, Input,OnInit  } from '@angular/core';
+import { Component, Input,OnInit , Inject, OpaqueToken } from '@angular/core';
 
 
 
 
 import { Injectable } from '@angular/core';
 
+const myServiceToken = new OpaqueToken("MyService");
 
 @Injectable()
 export class MyService{
@@ -21,7 +22,7 @@ export class MyService{
 @Injectable()
 export class AltMyService{
 	constructor(){
-		console.log("inside constructor");
+		console.log("inside constructor alt");
 	}
 
 	doSomething(){
@@ -30,7 +31,7 @@ export class AltMyService{
 }
 
 const svc = {
-	doSomething: () => console.log("did it too!")
+	doSomething: () => console.log("did it alt!")
 }
 
 const factory = () => new AltMyService();
@@ -38,23 +39,21 @@ const factory = () => new AltMyService();
 @Component({
 	selector: 'my-child',
 	template: ``,
-	providers: [{provide: MyService, useClass: AltMyService}]
+	providers: [{provide: MyService, useClass:AltMyService}]
 })
 export class ChildComponent {
 	constructor (private myService: MyService) {
 	}
 }
 
+
 @Component({
-	selector: '<my-app>',
+	selector: 'my-app',
 	template: `<my-child></my-child>`,
 	providers: [{provide: MyService, useClass: MyService}]
 })
-export class AppComponent {
+export class TempComponent {
 	constructor (private myService: MyService) {
 	}
 }
 
-con svc = {
-	doSomething: () => console.log("did it too!");
-}

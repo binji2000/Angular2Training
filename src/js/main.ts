@@ -7,9 +7,11 @@ if (process.env['ENV'] === 'production') {
 
 /*
 import { AppModule } from './app/day3/app.module';
+import { AppModule } from './app/day4/app.module';
+import { AppModule } from './app/day4/temp/app.module';
 */
 
-import { AppModule } from './app/day4/app.module';
+import { AppModule } from './app/day4/temp/app.module';
 
 
 platformBrowserDynamic().bootstrapModule(AppModule);

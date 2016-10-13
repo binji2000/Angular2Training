@@ -5,6 +5,29 @@
     <title>Angular 2 With Webpack</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+<!--
+    <script type='text/javascript' src="./js/app/day4/promises/SequencePromise.js"></script>
+-->
+    <script>
+
+      const p1 = new Promise(resolve => setTimeout(() => resolve('a'),2000));
+      const p2 = new Promise(resolve => setTimeout(() => resolve('b'),4000));
+      const p3 = new Promise(resolve => setTimeout(() => resolve('b'),6000));
+      const p4 = new Promise(resolve => setTimeout(() => resolve('d'),8000));
+
+      p1.then( () => console.log('a was resolved'));
+      p2.then( () => console.log('b was resolved'));
+      p3.then( () => console.log('c was resolved'));
+      p4.then( () => console.log('d was resolved'));
+      
+      Promise.all([p1,p2,p3,p4]).then( results => {
+        console.log(results);
+        console.log('all were resolved');
+      }).catch( err => {
+        console.log("one failed");
+        console.log(err);
+      })
+    </script>
   </head>
   <body>
     <my-app>Loading...</my-app>
