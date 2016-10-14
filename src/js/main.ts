@@ -6,12 +6,13 @@ if (process.env['ENV'] === 'production') {
 }
 
 /*
+import { AppModule } from './app/day1/app.module';
+import { AppModule } from './app/day2/app.module';
 import { AppModule } from './app/day3/app.module';
 import { AppModule } from './app/day4/app.module';
-import { AppModule } from './app/day4/temp/app.module';
 */
 
-import { AppModule } from './app/day4/app.module';
+import { AppModule } from './app/day5/app.module';
 
 
 platformBrowserDynamic().bootstrapModule(AppModule);

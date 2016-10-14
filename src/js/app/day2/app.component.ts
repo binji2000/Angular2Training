@@ -1,7 +1,6 @@
 import { Component, Directive } from '@angular/core';
 import { FormControl, NG_VALIDATORS } from '@angular/forms';
 
-import '../../css/styles.scss';
 
 const myRequiredValidator = (c: FormControl) => {
 	if (c.value == null || String(c.value).length === 0){

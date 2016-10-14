@@ -13,6 +13,8 @@ import {  Directive,forwardRef } from '@angular/core';
 export class CarBuilderComponent {
 
 	newCar: Car = <Car>{};
+	
+	minLen: number = 3;
 
 	@Output() 
  	newCarEmitter: EventEmitter<Car> = new EventEmitter<Car>(); 

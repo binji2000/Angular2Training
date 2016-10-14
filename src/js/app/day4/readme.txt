@@ -1,3 +1,11 @@
 covers the following topics:
-- how to pass information from parent component to child component
-- how to pass information from child component to parent component through event emitter
+
+promises:
+- Rest service
+
+injection:
+- javascript for dependency injection
+
+treeloop:
+- a complete app to retrieve data from Rest service
+- child component

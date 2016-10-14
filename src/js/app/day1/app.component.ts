@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
-import { Cars } from './service/cars.svc.ts';
-import { Car } from './service/cars.svc.ts';
-
-import '../../css/styles.scss';
+import { Cars } from './service/cars.svc';
+import { Car } from './service/cars.svc';
 
 
 @Component({
