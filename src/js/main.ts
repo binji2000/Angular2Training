@@ -11,9 +11,10 @@ import { AppModule } from './app/day2/app.module';
 import { AppModule } from './app/day3/app.module';
 import { AppModule } from './app/day4/app.module';
 import { AppModule } from './app/day5/app.module';
+import { AppModule } from './app/attributeDirective/app.module';
 */
 
-import { AppModule } from './app/route/app.module';
+import { AppModule } from './app/structuredirective/app.module';
 
 
 platformBrowserDynamic().bootstrapModule(AppModule);

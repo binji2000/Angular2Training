@@ -1,9 +1,6 @@
 import { Component, Input, Directive, ElementRef, Renderer, HostListener } from '@angular/core';
 
-
-
-
-import { Injectable } from '@angular/core';
+Injectable } from '@angular/core';
 
 
 @Component({
@@ -28,7 +25,7 @@ export class ListBox {
 @Directive({
 	selector: '[boldMe]'
 })
-export class BoldMeDirective {
+export class MyIfDirective {
 	constructor (
 		private element: ElementRef,
 		private renderer: Renderer
@@ -69,16 +66,13 @@ export class BoldMeDirective {
 @Component({
 	selector: 'my-app',
 	template: `
-							<span (boldMe)="doit()">My Colorful App</span>
-							<list-box [items]="colors">
-								<header><h1 (click)="doit()">list of Colors</h1></header>
-								<footer><small>List of colors from whatever</small></footer>
-							</list-box>
+							<span *myIf="showMe">You can seee me!</span>
 	`,
 })
 export class TempComponent {
 
-	colors: string[] = ['red', 'white', 'green', 'purple'];
+	showMe: boolean = true;
+	
 	
 }
 
