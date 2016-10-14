@@ -6,14 +6,14 @@ import { HttpModule, JsonpModule } from '@angular/http';
 
 
 /* import module from files, the modules also need to be added to the @NgModule.declarations */
-import { TempComponent, ListBox } from './route.component';
+import { TempComponent, ListBox, BoldMeDirective } from './route.component';
 
 import '../../../css/styles.scss';
 
 /* specify the entry point is AppCompent, which is in /component/car2.component */
 @NgModule({
 	imports: [ BrowserModule, FormsModule ],
-	declarations: [ TempComponent,ListBox ],
+	declarations: [ TempComponent,ListBox, BoldMeDirective ],
 	bootstrap: [ TempComponent ]
 })
 

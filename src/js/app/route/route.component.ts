@@ -1,4 +1,4 @@
-import { Component, Input,OnInit , Inject, OpaqueToken } from '@angular/core';
+import { Component, Input, Directive, ElementRef, Renderer } from '@angular/core';
 
 
 
@@ -24,10 +24,28 @@ export class ListBox {
 }
 
 
+
+@Directive({
+	selector: '[boldMe]'
+})
+export class BoldMeDirective {
+	constructor (
+		private element: ElementRef,
+		private renderer: Renderer
+	){
+		this.renderer.setElementStyle(
+				this.element.nativeElement, 'font-weight', 'bold'
+		);
+	}
+
+}
+
+
+/* note: attribute directive need [] if there is data pass into it. */
 @Component({
 	selector: 'my-app',
 	template: `<list-box [items]="colors">
-								<header><h1>list of Colors</h1></header>
+								<header><span boldMe>list of Colors</span></header>
 								<footer><small>List of colors from whatever</small></footer>
 							</list-box>
 	`,
