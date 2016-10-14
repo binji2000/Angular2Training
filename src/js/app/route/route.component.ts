@@ -33,9 +33,12 @@ export class BoldMeDirective {
 		private element: ElementRef,
 		private renderer: Renderer
 	){
-		this.renderer.setElementStyle(
-				this.element.nativeElement, 'font-weight', 'bold'
-		);
+		/* platform independent implementation, works on ios, android, and web. */
+		this.renderer.setElementStyle(this.element.nativeElement, 'font-weight', 'bold');
+
+		/* platform dependent implementation, only works on web. */
+		//this.element.nativeElement.style = 'font-weight:bold';
+
 		this.renderer.listen(this.element.nativeElement, 'click', () => console.log("inline click listener"));
 
 	}
