@@ -50,7 +50,7 @@ export class BoldMeDirective {
 		console.log("I was clicked");
 	}
 
-	/* note: the mouse enter and leave, it works. The better approach is using CSS .hover */
+	/* note: the mouse enter and leave 
 
 	@HostListener('mouseenter')
 	enableBold(){
@@ -61,7 +61,7 @@ export class BoldMeDirective {
 	disableBold(){
 		this.renderer.setElementStyle(this.element.nativeElement, 'font-weight', 'normal');
 	}
-	
+	*/
 }
 
 
@@ -69,8 +69,9 @@ export class BoldMeDirective {
 @Component({
 	selector: 'my-app',
 	template: `
+							<span (boldMe)="doit()">My Colorful App</span>
 							<list-box [items]="colors">
-								<header><span boldMe>list of Colors</span></header>
+								<header><h1 (click)="doit()">list of Colors</h1></header>
 								<footer><small>List of colors from whatever</small></footer>
 							</list-box>
 	`,
@@ -78,5 +79,6 @@ export class BoldMeDirective {
 export class TempComponent {
 
 	colors: string[] = ['red', 'white', 'green', 'purple'];
+	
 }
 
