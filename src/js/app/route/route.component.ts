@@ -50,6 +50,8 @@ export class BoldMeDirective {
 		console.log("I was clicked");
 	}
 
+	/* note: the mouse enter and leave 
+
 	@HostListener('mouseenter')
 	enableBold(){
 		this.renderer.setElementStyle(this.element.nativeElement, 'font-weight', 'bold');
@@ -59,6 +61,7 @@ export class BoldMeDirective {
 	disableBold(){
 		this.renderer.setElementStyle(this.element.nativeElement, 'font-weight', 'normal');
 	}
+	*/
 }
 
 
