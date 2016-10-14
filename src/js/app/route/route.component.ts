@@ -34,20 +34,31 @@ export class BoldMeDirective {
 		private renderer: Renderer
 	){
 		/* platform independent implementation, works on ios, android, and web. */
-		this.renderer.setElementStyle(this.element.nativeElement, 'font-weight', 'bold');
+		//this.renderer.setElementStyle(this.element.nativeElement, 'font-weight', 'bold');
 
 		/* platform dependent implementation, only works on web. */
 		//this.element.nativeElement.style = 'font-weight:bold';
 
-		this.renderer.listen(this.element.nativeElement, 'click', () => console.log("inline click listener"));
+		//inline add lisetner
+		//this.renderer.listen(this.element.nativeElement, 'click', () => console.log("inline click listener"));
 
 	}
 
+	//register a host listener
 	@HostListener('click')
 	click(){
 		console.log("I was clicked");
 	}
 
+	@HostListener('mouseenter')
+	enableBold(){
+		this.renderer.setElementStyle(this.element.nativeElement, 'font-weight', 'bold');
+	}
+
+	@HostListener('mouseleave')
+	disableBold(){
+		this.renderer.setElementStyle(this.element.nativeElement, 'font-weight', 'normal');
+	}
 }
 
 
