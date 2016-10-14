@@ -1,4 +1,4 @@
-import { Component, Input, Directive, ElementRef, Renderer } from '@angular/core';
+import { Component, Input, Directive, ElementRef, Renderer, HostListener } from '@angular/core';
 
 
 
@@ -36,6 +36,12 @@ export class BoldMeDirective {
 		this.renderer.setElementStyle(
 				this.element.nativeElement, 'font-weight', 'bold'
 		);
+
+	}
+
+	@HostListener('click')
+	click(){
+		console.log("I was clicked");
 	}
 
 }
