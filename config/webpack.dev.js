@@ -10,7 +10,8 @@ module.exports = require('webpack-merge')(require('./webpack.common.js'), {
   // this specific setting value is required to set breakpoints in the TypeScript
   // in the web browser for development
   // other source map settings do not allow debugging
-  devtool: 'inline-source-map',
+  //devtool: 'inline-source-map',
+  devtool: 'source-map',
 
   // out file settings
   // path points to web server content folder where the web server will serve the files from

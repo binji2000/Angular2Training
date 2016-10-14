@@ -37,7 +37,8 @@ export class AppComponent implements OnInit {
   isTableVisible: boolean = true;
 	
 	btnCreateClick() {
-		this.isTableVisible = !this.isTableVisible;
+		console.log("abd");
+		this.isTableVisible = !this.isTableVisible; 
 	}
 
 
