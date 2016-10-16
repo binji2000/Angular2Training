@@ -10,7 +10,7 @@ import {  Directive,forwardRef } from '@angular/core';
 	selector: 'car-builder',
 	template: require('./carBuilder.component.html')
 })
-export class CarBuilderComponent {
+export default class CarBuilderComponent {
 
 	newCar: Car = <Car>{};
 	

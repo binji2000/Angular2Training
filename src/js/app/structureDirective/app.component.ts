@@ -35,7 +35,7 @@ export class MyIfDirective {
 @Component({
 	selector: 'my-app',
 	template: `<input type="checkbox" [(ngModel)]="showMe">
-						 <span *myIf="showMe">You can see me!</span>`,
+						 <span *myIf="showMe">You can see me!</span> abc`,
 })
 export class TempComponent {
 

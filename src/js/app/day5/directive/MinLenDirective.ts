@@ -10,7 +10,7 @@ import {FormControl, NG_VALIDATORS} from '@angular/forms';
 		multi: true
 	}]
 })
-export class MinLenDirective {
+export default class MinLenDirective {
 
 	private _minLen: number;
 

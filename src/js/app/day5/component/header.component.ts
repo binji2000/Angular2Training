@@ -5,7 +5,7 @@ import { Component, Input } from '@angular/core';
 	template: require('./header.component.html'),
 })
 
-export class MyHeaderComponent {
+export default class MyHeaderComponent {
 	@Input()
 	header: string;
 }	

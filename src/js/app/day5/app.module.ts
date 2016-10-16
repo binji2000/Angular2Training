@@ -5,12 +5,12 @@ import { FormsModule } from '@angular/forms';
 
 
 /* import module from files, the modules also need to be added to the @NgModule.declarations */
-import { AppComponent } from './component/car5.component';
-import { CarTableComponent } from './component/carTable.component';
-import { MyHeaderComponent } from './component/header.component';
-import { CarBuilderComponent } from './component/carBuilder.component';
-import { MinLenDirective } from './directive/MinLenDirective';
-import { CapitalizePipe } from './pipe/CapitalizePipe.component';
+import AppComponent from './component/car5.component';
+import CarTableComponent from './component/carTable.component';
+import MyHeaderComponent from './component/header.component';
+import CarBuilderComponent from './component/carBuilder.component';
+import MinLenDirective from './directive/MinLenDirective';
+import CapitalizePipe from './pipe/CapitalizePipe.component';
 
 import '../../../css/styles.scss';
 

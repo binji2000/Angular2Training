@@ -12,7 +12,7 @@ import { CarService } from './../service/cars.svc';
 	template: require('./car5.component.html'),
 	providers: [CarService]			
 })
-export class AppComponent implements OnInit {
+export default class AppComponent implements OnInit {
 	constructor (private carSrv: CarService){
 		this.now = new Date();
 	}

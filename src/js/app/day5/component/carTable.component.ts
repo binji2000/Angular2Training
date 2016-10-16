@@ -8,7 +8,7 @@ import { CarLot } from './../vo/carLot';
 	template: require('./carTable.component.html')
 })
 
-export class CarTableComponent {
+export default class CarTableComponent {
 
 	/* initialized through the html fragment */
 	@Input()
